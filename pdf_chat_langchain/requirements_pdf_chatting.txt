@@ -3,4 +3,5 @@ google-generativeai
 python-dotenv
 langchain
 PyPDF2
-chromdb
+faiss-cpu
+langchain_google_genailangchain-community
