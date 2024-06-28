@@ -48,7 +48,7 @@ def get_text_chunks(text):
     # Create a text splitter object with specified chunk size and overlap
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
     chunks = text_splitter.split_text(text)  # Split the text into chunks
-    return chunks  # Note: This should return 'chunks', not 'text'
+    return chunks 
 
 def get_vector_store(text_chunks):
     # Create embeddings using Google's Generative AI model
@@ -68,7 +68,6 @@ def get_conversational_chain():
                     Answer:
                     """
     
-    # Create a ChatGoogleGenerativeAI model instance
     model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
 
     # Create a PromptTemplate object with the defined template
@@ -94,27 +93,26 @@ def user_input(user_question):
         return_only_outputs=True
     )
     
-    print(response)  # Print the response (for debugging)
-    st.write("Reply: ", response["output_text"])  # Display the response in the Streamlit app
+    print(response)  
+    st.write("Reply: ", response["output_text"])  
     
 def main():
-    st.set_page_config("Chat with Multiple PDFs")  # Set the page config for the Streamlit app
-    st.header("Chat with PDF using Gemini")  # Add a header to the main page
-    user_question = st.text_input("Ask a Question from PDF Files")  # Create a text input for user questions
+    st.set_page_config("Chat with Multiple PDFs")  
+    st.header("Chat with PDF using Gemini")  
+    user_question = st.text_input("Ask a Question from PDF Files")  
 
     if user_question:
-        user_input(user_question)  # Process the user's question if one is provided
+        user_input(user_question) 
 
     with st.sidebar:
-        st.title("Menu: ")  # Add a title to the sidebar
-        # Create a file uploader for PDF documents
+        st.title("Menu: ")  
         pdf_docs = st.file_uploader("Upload your PDF files and Click on the Process & Submit button!", type=['pdf'], accept_multiple_files=True)
-        if st.button("Submit & Process"):  # Create a button to process the uploaded PDFs
-            with st.spinner("Processing..."):  # Show a spinner while processing
-                raw_text = get_pdf_text(pdf_docs)  # Extract text from the PDFs
+        if st.button("Submit & Process"):  
+            with st.spinner("Processing..."):  
+                raw_text = get_pdf_text(pdf_docs)  
                 text_chunks = get_text_chunks(raw_text)  # Split the text into chunks
                 get_vector_store(text_chunks)  # Create and save a vector store
                 st.success("Done")  # Show a success message when processing is complete
 
 if __name__ == "__main__":
-    main()  # Run the main function when the script is executed
+    main()  
