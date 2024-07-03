@@ -30,7 +30,8 @@ def input_image_setup(uploaded_file):
 
 
 st.set_page_config(page_title="Gemini as a Nutritionist")
-st.header("ASK ME ABOUT NUTRITION...")
+st.header("Ask Gemine...a Nutritionist")
+st.info("Just upload a food item and ask anything...")
 input=st.text_input("Input Prompt ",key="input")
 uploaded_file=st.file_uploader("Choose an image...",type=["jpg","jpeg","png"])
 image=""
