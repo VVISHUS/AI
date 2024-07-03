@@ -1,5 +1,5 @@
-dotenv
 streamlit
+google-generativeai
+python-dotenv
 os
-google.generativeai
 PIL
