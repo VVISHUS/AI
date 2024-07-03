@@ -39,7 +39,7 @@ if uploaded_file is not None:
     image=Image.open(uploaded_file)
     st.image(image,caption="Uploaded file",use_column_width=True)
 
-submit=st.button("Tell me about the image...")
+submit=st.button("Go on...")
 
 input_prompt="""See you are an expert in nutritionist where you need to see the food items from the image and calculate the total calories
 , also provide the macros and the details of every food item with calories intak in below format
