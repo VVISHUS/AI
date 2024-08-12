@@ -55,7 +55,8 @@ def get_vector_store(text_chunks):
 def get_conversational_chain():
     prompt_template = """
                     Answer the question as detailed as possible from the provided context, make sure to
-                    provide all the details, if the answer is not in provided context just say,"Answer is not available in the context", don't provide the wrong answer
+                    provide all the details, if the answer is not in provided context just say,"Answer is not available in the context", don't provide the wrong answer,
+                    Also make sure that if thr user ask about to develop something from the given research paper or any doc, Implement it at any cost
                     Context:\n {context}?\n
                     Question: \n{question}\n
 
